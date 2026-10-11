@@ -1,1 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap");
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Cores de marca — fixas, não mudam entre os temas */
+  --color-navy: #0b1220;
+  --color-navy-light: #16233f;
+  --color-teal: #14b8a6;
+  --color-amber: #fbbf24;
+
+  /* Tokens semânticos — valores padrão (modo claro) */
+  --color-bg: #ffffff;
+  --color-bg-alt: #f4f6f8;
+  --color-surface: #ffffff;
+  --color-text: #0b1220;
+  --color-text-muted: #4b5563;
+  --color-border: #e2e8f0;
+
+  /* Tipografia */
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+@layer theme {
+  :root,
+  :host {
+    @variant dark {
+      --color-bg: #0b1220;
+      --color-bg-alt: #101a30;
+      --color-surface: #131f38;
+      --color-text: #f4f6f8;
+      --color-text-muted: #9ca8bc;
+      --color-border: #22304d;
+    }
+  }
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+  }
+}
